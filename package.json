@@ -1,0 +1,31 @@
+{
+  "name": "gql-module",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:dev": "tsc --watch --noEmit",
+    "start:dev": "npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register --clear src/index.ts"
+  },
+  "keywords": [
+    "gql",
+    "graphql",
+    "module",
+    "tool",
+    "library",
+    "modularstructure"
+  ],
+  "author": "Diyor Umarkulov",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "apollo-server-core": "^3.13.0",
+    "graphql": "^16.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.2"
+  }
+}
