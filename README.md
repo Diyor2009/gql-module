@@ -1,36 +1,36 @@
-# GraphQL Module Builder
+# GraphQL Module Builder 🚀
 
-**GraphQL Module Builder** - это библиотека, предназначенная для упрощения работы с модулями GraphQL, позволяющая быстро создавать, регистрировать и объединять типы и резолверы в единую модульную структуру.
+**GraphQL Module Builder** is a library designed to simplify working with GraphQL modules, enabling you to quickly create, register, and combine types and resolvers into a modular structure.
 
-## Смысл и причины создания
+## Purpose and Motivation 🌟
 
-### 1. **Упрощение разработки модульной архитектуры GraphQL**
+### 1. **Simplifying Modular Architecture Development in GraphQL** 🛠️
 
-При масштабировании приложений, использующих GraphQL, организация кода может стать сложной задачей. Эта библиотека позволяет структурировать код с использованием модулей, где каждый модуль содержит типы и резолверы для определенной функциональности.
+As GraphQL applications scale, organizing the codebase can become challenging. This library allows developers to structure code using modules, where each module encapsulates types and resolvers for a specific functionality.
 
-### 2. **Повышение читаемости и удобства поддержки**
+### 2. **Improved Readability and Maintainability** 📚
 
-Четкая структура, разделенная на модули, делает код понятным и легким для поддержки. Каждый модуль управляет отдельной областью приложения, что снижает вероятность конфликтов в резолверах и упрощает добавление новых функциональностей.
+A clear, module-based structure makes the code easy to understand and maintain. Each module manages a distinct part of the application, reducing conflicts between resolvers and simplifying the addition of new features.
 
-### 3. **Автоматизация объединения типов и резолверов**
+### 3. **Automated Type and Resolver Aggregation** 🤖
 
-Вместо ручной агрегации типов и резолверов, библиотека автоматически генерирует итоговые `typeDefs` и `resolvers`. Это избавляет разработчиков от рутинной работы, снижает количество ошибок и улучшает скорость разработки.
+Instead of manually aggregating types and resolvers, the library automatically generates the final `typeDefs` and `resolvers`. This eliminates repetitive tasks, reduces errors, and accelerates development.
 
-### 4. **Гибкость в создании резолверов**
+### 4. **Flexibility in Resolver Creation** ⚡
 
-Библиотека предоставляет простой API для создания резолверов с четким разделением запросов, мутаций и подписок. Это позволяет разработчикам сосредоточиться на бизнес-логике, а не на инфраструктурных деталях.
+The library provides a straightforward API for creating resolvers with clear separation of queries, mutations, and subscriptions. This lets developers focus on business logic rather than infrastructure details.
 
 ---
 
-## Установка
+## Installation 📦
 
-Установите библиотеку с помощью npm или yarn:
+Install the library using npm or yarn:
 
 ```bash
 npm install gql-module
 ```
 
-или
+or
 
 ```bash
 yarn add gql-module
@@ -38,13 +38,15 @@ yarn add gql-module
 
 ---
 
-## Использование
+## Usage 💡
+
+Here’s an example of how to use **GraphQL Module Builder**:
 
 ```typescript
 import { gql } from "apollo-server-core";
 import { resolvers, gqlModule, registerModules } from "gql-module";
 
-// Определение GraphQL типов
+// 📄 Define GraphQL types
 const userTypes = gql`
   type User {
     name: String
@@ -56,17 +58,18 @@ const userTypes = gql`
   }
 `;
 
-// Определение GraphQL резолверов
+// 🔧 Define GraphQL resolvers
 const userQueries = resolvers({
   getAllUsers: {
-    handler(...args) {
-      // Ваш обработчик запроса
+    handler: async () => {
+      // Simulate fetching data
+      return { payload: [{ name: "Alice", password: "hidden" }] };
     },
     type: ": UsersOutput",
   },
 });
 
-// Создание GraphQL модуля
+// 🧩 Create a GraphQL module
 const userModule = gqlModule({
   resolvers: {
     queries: userQueries,
@@ -74,10 +77,10 @@ const userModule = gqlModule({
   types: [userTypes],
 });
 
-// Регистрация модулей и получение итоговых типизаций и резолверов
+// 🔗 Register modules and retrieve final types and resolvers
 const { resolvers: builtResolvers, typeDefs } = registerModules([userModule]);
 
-// Вывод результатов
+// ✅ Log results
 console.log("builtResolvers", builtResolvers);
 // Result:
 // builtResolvers { Query: { getAllUsers: [Function: builtResolver] } }
@@ -101,14 +104,11 @@ console.log("typeDefs", typeDefs.loc.source.body);
 
 ---
 
-## Лицензия
+## License 📜
 
-Данная библиотека распространяется под лицензией MIT. Полный текст лицензии можно найти в файле [LICENSE](./LICENSE).
+This library is distributed under the MIT License. The full license text can be found in the [LICENSE](./LICENSE) file.
 
 ---
 
-Мы надеемся, что эта библиотека упростит вашу работу с GraphQL. Если у вас есть идеи, как улучшить проект, или вы столкнулись с проблемами, будем рады вашим отзывам и предложениям в разделе [Issues](https://github.com/your-repo/gql-module/issues)!
+We hope this library simplifies your work with GraphQL! 💻 If you have ideas for improvements or encounter issues, we’d love to hear from you in the [Issues](https://github.com/your-repo/gql-module/issues) section!
 
-```
-
-```
