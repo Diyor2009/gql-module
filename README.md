@@ -110,5 +110,5 @@ This library is distributed under the MIT License. The full license text can be 
 
 ---
 
-We hope this library simplifies your work with GraphQL! 💻 If you have ideas for improvements or encounter issues, we’d love to hear from you in the [Issues](https://github.com/your-repo/gql-module/issues) section!
+We hope this library simplifies your work with GraphQL! 💻 If you have ideas for improvements or encounter issues, we’d love to hear from you in the [Issues](https://github.com/Diyor2009/gql-module/issues) section!
 
