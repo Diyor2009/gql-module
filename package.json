@@ -2,10 +2,12 @@
   "name": "gql-module",
   "version": "1.0.1",
   "main": "src/index.js",
-  "scripts": {
-    "build": "tsc",
-    "build:dev": "tsc --watch --noEmit",
-    "start:dev": "npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register --clear src/index.ts"
+  "author": "Diyor Umarkulov",
+  "license": "MIT",
+  "description": "GraphQL Module Builder is a library designed to simplify working with GraphQL modules, enabling you to quickly create, register, and combine types and resolvers into a modular structure.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DiyorUmarkulov/gql-module"
   },
   "keywords": [
     "gql",
@@ -15,9 +17,11 @@
     "library",
     "modularstructure"
   ],
-  "author": "Diyor Umarkulov",
-  "license": "MIT",
-  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "build:dev": "tsc --watch --noEmit",
+    "start:dev": "npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register --clear src/index.ts"
+  },
   "dependencies": {
     "apollo-server-core": "^3.13.0",
     "graphql": "^16.9.0"
